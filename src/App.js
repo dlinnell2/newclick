@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
 import Container from './Components/Container'
 import Jumbo from './Components/Jumbo'
-import Card from './Components/Card'
+import Image from './Components/Image'
 import characters from './info.json'
 
-class App extends Component{
+class App extends Component {
 
-render() {
-  return(
-    <Container>
-      <Jumbo />
-    </Container>
-  )
-}
+  state = {
+    characters
+  };
+
+  render() {
+    return (
+      <Container>
+        <Jumbo />
+        <div className="row">
+          {this.state.characters.map(character => (
+            <Image
+              image={character.image}
+              id={character.id}
+            />
+          ))}
+        </div>
+      </Container>
+    )
+  }
 
 }
 
