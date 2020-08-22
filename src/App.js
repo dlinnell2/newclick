@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Container from './Components/Container'
 import Jumbo from './Components/Jumbo'
 import Image from './Components/Image'
+import Navbar from './Components/Navbar'
 import characters from './info.json'
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <Container>
+        <Navbar />
         <Jumbo />
         <div className="row">
           {this.state.characters.map(character => (
