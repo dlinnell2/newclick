@@ -13,3 +13,13 @@
 .score {
     color: white
 }
+
+.correct {
+    color: white;
+    font-size: 24px
+}
+
+.incorrect {
+    color: red;
+    font-size: 24px
+}
