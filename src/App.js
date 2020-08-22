@@ -27,9 +27,10 @@ class App extends Component {
   clickImage = (id) => {
 
     let checkClick = this.state.clicked.includes(id);
-    
+
     let newInfo = this.state.info;
     shuffle(newInfo);
+    let newArray = this.state.clicked.concat(id);
 
     if (checkClick) {
 
@@ -41,9 +42,27 @@ class App extends Component {
           info:newInfo
 
       })
+    } else if (this.state.currentScore >= this.state.highScore){
+
+      this.setState({
+        currentScore:this.state.currentScore+1,
+        highScore:this.state.currentScore+1,
+        message:"New High Score!",
+        messageStyle:"correct",
+        clicked:newArray,
+        info:newInfo
+      })
+    } else {
+
+      this.setState({
+        currentScore:this.state.currentScore+1,
+        message:"Correct!",
+        messageStyle:"correct",
+        clicked:newArray,
+        info:newInfo
+      })
     }
 
-    this.state.clicked.push(id);
   }
 
   render() {
