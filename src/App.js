@@ -14,38 +14,42 @@ function shuffle(array) {
 
 class App extends Component {
 
-  state = {
-    info,
-    currentScore: 0,
-    highScore: 0,
-    clicked: [0],
-    message: null,
-    messageStyle: null
-  };
+    state = {
+      info,
+      currentScore: 0,
+      highScore: 0,
+      clicked: [0],
+      message: null,
+      messageStyle: null
+    }
+  
 
   clickImage = (id) => {
 
     let checkClick = this.state.clicked.includes(id);
-    shuffle(this.state.info);
-
-    console.log(this.state.info)
     
+    let newInfo = this.state.info;
+    shuffle(newInfo);
+
     if (checkClick) {
+
       this.setState({
-        currentScore:0,
-        clicked:[0],
-        message: "Already Clicked!",
-        messageStyle: "incorrect",
+          currentScore: 0,
+          clicked: [0],
+          message: "Already Clicked!",
+          messageStyle: "incorrect",
+          info:newInfo
+
       })
     }
-    
+
     this.state.clicked.push(id);
   }
 
   render() {
     return (
       <Container>
-        <Navbar 
+        <Navbar
           currentScore={this.state.currentScore}
           highScore={this.state.highScore}
           message={this.state.message}
